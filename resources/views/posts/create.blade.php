@@ -5,7 +5,7 @@
 @section('content')
     <h1>Formulario </h1>
 
-
+    {{-- {{__('Client Closed Request 2')}} --}}
     <form action="{{ route('posts.store') }}" method="post">
         @csrf
         @method('POST')

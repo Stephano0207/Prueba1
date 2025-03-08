@@ -31,23 +31,23 @@ class StorePostRequest extends FormRequest
     }
 
     //Mensajes que se mostrara en caso no se cumplan las validaciones
-    public function messages(){
-        return [
-            "title.required"=>"Ingrese el :attribute del post",
-            "slug.required"=>"Ingrese el slug",
-            "slug.unique"=>"Slug r epetido ingrese otro slug",
-            "content.required"=>"Ingrese el contenido del post",
-            "categoria.required"=>"Ingrese la categoria del post",
-        ];
-    }
+    // public function messages(){
+    //     return [
+    //         "title.required"=>"Ingrese el :attribute del post",
+    //         "slug.required"=>"Ingrese el slug",
+    //         "slug.unique"=>"Slug r epetido ingrese otro slug",
+    //         "content.required"=>"Ingrese el contenido del post",
+    //         "categoria.required"=>"Ingrese la categoria del post",
+    //     ];
+    // }
 
 
     // Cambiar solo el nombre por defecto de ciertas variables
     // en caso ocurra una validacion
-    public function attributes()
-    {
-        return [
-            "title"=>"name"
-        ];
-    }
+    // public function attributes()
+    // {
+    //     return [
+    //         "title"=>"name"
+    //     ];
+    // }
 }
