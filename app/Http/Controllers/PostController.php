@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePostRequest;
+use App\Mail\PostCreatedMail;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PostController extends Controller
 {
@@ -54,8 +56,9 @@ class PostController extends Controller
         // ];
         // $request->validate($rules,$messages);
 
-       Post::create($request->all());
+      $post= Post::create($request->all());
 
+       Mail::to("chinchin@unitru.edu.pe")->send(new PostCreatedMail($post));
 
     //    return redirect("/posts"); Otra manera de dirigirse a una ruta
        return redirect()->route("posts.index");
@@ -64,7 +67,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $id)
+    public function show(Post $post)
     {
         // $post= Post::find($id);
         return view("posts.show",compact("post"));
